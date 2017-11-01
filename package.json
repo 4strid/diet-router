@@ -1,0 +1,33 @@
+{
+  "name": "diet-router",
+  "version": "1.0.0",
+  "description": "Simple, full featured, nestable router for diet.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape ./test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cutejs/diet-router.git"
+  },
+  "keywords": [
+    "diet",
+    "dietjs",
+    "diet.js",
+    "framework",
+    "router",
+    "routing",
+    "route params",
+    "middleware",
+    "url"
+  ],
+  "author": "Peter Fesz-Nguyen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cutejs/diet-router/issues"
+  },
+  "homepage": "https://github.com/cutejs/diet-router#readme",
+  "devDependencies": {
+    "tape": "^4.8.0"
+  }
+}
