@@ -1,7 +1,7 @@
 # diet-router
 Simple, full featured, nestable router for diet.js
 
-```
+```javascript
 const server = require('diet')
 const Router = require('diet-router')
 
@@ -20,7 +20,7 @@ router.get('/subroute', function ($) {
 ```
 
 Add routes before or after calling `route`. This lets you write your routers in separate files
-```
+```javascript
 // router1.js
 const router = Router()
 
@@ -30,7 +30,7 @@ router.get('/subroute', function ($) {
 
 module.exports = router
 ```
-```
+```javscript
 // main.js
 const router1 = require('./router1')
 
@@ -38,7 +38,7 @@ app.route('/route', router1)
 ```
 
 If you don't want to extend diet's app object, you can skip calling `Router.extend` and call the router directly passing the `app` object as the first argument
-```
+```javascript
 const router = Router()
 router.get('/subroute', function ($) {
 	$.end('response')
@@ -50,7 +50,7 @@ router(app, '/route')
 
 The router supports adding middleware to be run before each subroute. You can add it when calling Router or when calling app.route
 
-```
+```javascript
 const router = Router()
 app.route('/path', function ($) {
 	// this is middleware
@@ -60,7 +60,7 @@ app.route('/path', function ($) {
 
 Alternatively: 
 
-```
+```javascript
 const router = Router(fooware, barware, etcware)
 app.route('/path', router)
 ```
@@ -71,7 +71,7 @@ Note that the router is the *last* argument passed using either method
 
 The router supports nesting a router within another router
 
-```
+```javascript
 const router1 = Router()
 const router2 = Router()
 
@@ -87,7 +87,7 @@ router2.get('/subroute', function ($) {
 
 Middleware can be added anywhere along the chain
 
-```
+```javscript
 const router1 = Router()
 const router2 = Router()
 
