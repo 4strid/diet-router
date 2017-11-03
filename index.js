@@ -13,7 +13,7 @@ function Router (...middleware) {
 	fn.middleware = middleware
 	fn.route = function (path, ...middleware) {
 		var router = middleware.pop()
-		router(this, path, middleware)
+		router(this, path, ...middleware)
 	}
 
 	return new Proxy(fn, {
