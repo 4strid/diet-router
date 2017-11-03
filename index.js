@@ -1,5 +1,5 @@
 function Router (...middleware) {
-	var fn = function route (app, path, ...middleware) {
+	const fn = function route (app, path, ...middleware) {
 		fn.app = app
 		fn.path = path
 		fn.middleware = [...fn.middleware, ...middleware]
@@ -12,7 +12,7 @@ function Router (...middleware) {
 	fn.app = null
 	fn.middleware = middleware
 	fn.route = function (path, ...middleware) {
-		var router = middleware.pop()
+		const router = middleware.pop()
 		router(this, path, ...middleware)
 	}
 
@@ -30,7 +30,7 @@ function Router (...middleware) {
 
 Router.extend = function (app) {
 	app.route = function (path, ...middleware) {
-		var router = middleware.pop()
+		const router = middleware.pop()
 		router(app, path, ...middleware)
 	}
 }
@@ -43,9 +43,9 @@ function method (method, path, middleware) {
 			middleware
 		})
 	} else {
-		var nestedMiddleware = [...this.middleware, ...middleware]
-		var nestedPath = this.path + path
-		var args = [nestedPath, ...nestedMiddleware]
+		const nestedMiddleware = [...this.middleware, ...middleware]
+		const nestedPath = this.path + path
+		const args = [nestedPath, ...nestedMiddleware]
 		this.app[method].apply(this.app, args)
 	}
 }

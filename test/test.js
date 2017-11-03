@@ -1,13 +1,13 @@
-var test = require('tape')
-var server = require('diet')
-var request = require('request-promise-native')
-var Router = require('../')
+const test = require('tape')
+const server = require('diet')
+const request = require('request-promise-native')
+const Router = require('../')
 
 /*********
  * Setup *
  *********/
 
-var app = server()
+const app = server()
 app.listen('http://localhost:7777')
 Router.extend(app)
 
@@ -33,7 +33,7 @@ function ErrHandler (t) {
  *********/
 
 test('Expect router to add an accessible route when the router is called directly and when methods are called before the router', function (t) {
-	var router = Router()
+	const router = Router()
 	router.get('/', function ($) {
 		$.end('test success')
 	})
@@ -49,7 +49,7 @@ test('Expect router to add an accessible route when the router is called directl
 
 
 test('Expect router to add an accessible route when the router is called directly and when the router is called before methods', function (t) {
-	var router = Router()
+	const router = Router()
 	router(app, '/test2')
 	router.get('/', function ($) {
 		$.end('test success')
@@ -64,7 +64,7 @@ test('Expect router to add an accessible route when the router is called directl
 })
 
 test('Expect router to add an accessible route when the router is invoked by "route" and when methods are called before "route"', function (t) {
-	var router = Router()
+	const router = Router()
 	router.get('/', function ($) {
 		$.end('test success')
 	})
@@ -79,7 +79,7 @@ test('Expect router to add an accessible route when the router is invoked by "ro
 })
 
 test('Expect router to add an accessible route when the router is invoked by "route" and when the router is called before methods', function (t) {
-	var router = Router()
+	const router = Router()
 	app.route('/test4', router)
 	router.get('/', function ($) {
 		$.end('test success')
@@ -94,7 +94,7 @@ test('Expect router to add an accessible route when the router is invoked by "ro
 })
 
 test('Expect router to add routes when methods are added before and after calling the router', function (t) {
-	var router = Router()
+	const router = Router()
 	router.get('/1', function ($) {
 		$.end('test success 1')
 	})
@@ -116,7 +116,7 @@ test('Expect router to add routes when methods are added before and after callin
 })
 
 test('Expect router to add routes when methods are added before and after calling "route"', function (t) {
-	var router = Router()
+	const router = Router()
 	router.get('/1', function ($) {
 		$.end('test success 1')
 	})
@@ -138,7 +138,7 @@ test('Expect router to add routes when methods are added before and after callin
 })
 
 test('Expect router to add routes when methods are added before and after calling "route"', function (t) {
-	var router = Router()
+	const router = Router()
 	router.get('/1', function ($) {
 		$.end('test success 1')
 	})
@@ -160,7 +160,7 @@ test('Expect router to add routes when methods are added before and after callin
 })
 
 test('Expect router to add middleware to the chain from the Router constructor', function (t) {
-	var router = Router(fooware)
+	const router = Router(fooware)
 	router.get('/', function ($) {
 		$.end($.foo)
 	})
@@ -175,7 +175,7 @@ test('Expect router to add middleware to the chain from the Router constructor',
 })
 
 test('Expect router to add middleware to the chain from the call to "route"', function (t) {
-	var router = Router()
+	const router = Router()
 	router.get('/', function ($) {
 		$.end($.foo)
 	})
@@ -190,7 +190,7 @@ test('Expect router to add middleware to the chain from the call to "route"', fu
 })
 
 test('Expect router to add middleware to the chain from both potential sources', function (t) {
-	var router = Router(fooware)
+	const router = Router(fooware)
 	router.get('/', function ($) {
 		$.end($.foo + $.bar)
 	})
@@ -205,8 +205,8 @@ test('Expect router to add middleware to the chain from both potential sources',
 })
 
 test('Expect router to add accessible route when using a nested router with the "route" method', function (t) {
-	var router1 = Router()
-	var router2 = Router()
+	const router1 = Router()
+	const router2 = Router()
 	router2.get('/2', function ($) {
 		$.end('test success')
 	})
@@ -222,8 +222,8 @@ test('Expect router to add accessible route when using a nested router with the 
 })
 
 test('Expect router to add accessible route when using a nested router by calling the nested router', function (t) {
-	var router1 = Router()
-	var router2 = Router()
+	const router1 = Router()
+	const router2 = Router()
 	router2.get('/2', function ($) {
 		$.end('test success')
 	})
@@ -241,8 +241,8 @@ test('Expect router to add accessible route when using a nested router by callin
 })
 
 test('Expect router to add middleware to the chain when using a nested router', function (t) {
-	var router1 = Router()
-	var router2 = Router()
+	const router1 = Router()
+	const router2 = Router()
 	router2.get('/', function ($) {
 		$.end($.foo + $.bar)
 	})
