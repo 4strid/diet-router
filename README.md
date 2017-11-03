@@ -37,7 +37,7 @@ const router1 = require('./router1')
 app.route('/route', router1)
 ```
 
-If you don't want to extend diet's app object, you can skip calling `Router.extend` and call the router directly passing the `app` object as the first argument
+If you don't want to extend diet's app object, you can skip calling `Router.extend` and call the router directly, passing the `app` object as the first argument
 ```javascript
 const router = Router()
 router.get('/subroute', function ($) {
@@ -87,7 +87,7 @@ router2.get('/subroute', function ($) {
 
 Middleware can be added anywhere along the chain
 
-```javscript
+```javascript
 const router1 = Router()
 const router2 = Router()
 
