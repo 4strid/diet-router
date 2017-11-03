@@ -1,6 +1,8 @@
 # diet-router
 Simple, full featured, nestable router for diet.js
 
+Supports all of diet's HTTP methods (namely get, post, put, patch, delete, and trace)
+
 ```javascript
 const server = require('diet')
 const Router = require('diet-router')

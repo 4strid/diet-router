@@ -1,6 +1,6 @@
 {
   "name": "diet-router",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simple, full featured, nestable router for diet.js",
   "main": "index.js",
   "scripts": {
