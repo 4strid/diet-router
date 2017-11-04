@@ -29,6 +29,7 @@
   "homepage": "https://github.com/cutejs/diet-router#readme",
   "devDependencies": {
     "diet": "^0.16.0",
+    "request": "^2.83.0",
     "request-promise-native": "^1.0.5",
     "tape": "^4.8.0"
   }
