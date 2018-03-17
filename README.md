@@ -103,3 +103,8 @@ router2.get('/subroute', bazware, function ($) {
 
 // runs fooware, then barware, then bazware, and finally the function that returns the response
 ```
+
+Contact
+-------
+Bug reports, feature requests, and questions are all welcome. Just open a GitHub issue and I'll
+get back to you
