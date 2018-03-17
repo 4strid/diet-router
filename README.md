@@ -60,6 +60,8 @@ app.route('/path', function ($) {
 }, barware, etcware, router)
 ```
 
+Note that the router is the *last* argument passed
+
 Alternatively: 
 
 ```javascript
@@ -67,7 +69,6 @@ const router = Router(fooware, barware, etcware)
 app.route('/path', router)
 ```
 
-Note that the router is the *last* argument passed using either method
 
 ## Nested Routing ##
 
