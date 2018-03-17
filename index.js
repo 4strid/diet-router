@@ -2,7 +2,7 @@ function Router (...middleware) {
 	const fn = function route (app, path, ...middleware) {
 		fn.app = app
 		fn.path = path
-		fn.middleware = [...fn.middleware, ...middleware]
+		fn.middleware = [...middleware, ...fn.middleware]
 		for (const op of fn.queue) {
 			method.call(fn, op.method, op.path, op.middleware)
 		}
@@ -18,7 +18,13 @@ function Router (...middleware) {
 
 	return new Proxy(fn, {
 		get: function (target, name) {
-			if (target.hasOwnProperty(name)) {
+			if (typeof name === 'symbol') {
+				return target[name]
+			}
+			if (name === 'inspect') {
+				return target.inspect
+			}
+			if (name in target) {
 				return target[name]
 			}
 			return function(path, ...middleware) {

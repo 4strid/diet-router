@@ -32,6 +32,21 @@ function ErrHandler (t) {
  * Tests *
  *********/
 
+test('Expect to be able to console.log a router without breaking everything', function (t) {
+	try {
+		const router = Router()
+		console.log(router)
+		router.get('/', function ($) {
+			$.end('test success')
+		})
+		app.route('/test0', router)
+		t.pass('yes')
+		t.end()
+	} catch (err) {
+		ErrHandler(t)(err)
+	}
+})
+
 test('Expect router to add an accessible route when the router is called directly and when methods are called before the router', function (t) {
 	const router = Router()
 	router.get('/', function ($) {
