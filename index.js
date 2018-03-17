@@ -1,7 +1,7 @@
 function Router (...middleware) {
 	const fn = function route (app, path, ...middleware) {
 		fn.app = app
-		fn.path = path
+		fn.path = path === '/' ? '' : path
 		fn.middleware = [...middleware, ...fn.middleware]
 		for (const op of fn.queue) {
 			method.call(fn, op.method, op.path, op.middleware)
@@ -27,7 +27,7 @@ function Router (...middleware) {
 			if (name in target) {
 				return target[name]
 			}
-			return function(path, ...middleware) {
+			return function (path, ...middleware) {
 				method.call(this, name, path, middleware)
 			}
 		}
